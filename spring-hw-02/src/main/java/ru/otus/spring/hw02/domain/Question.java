@@ -12,12 +12,4 @@ public class Question {
         this.fileName = fileName;
         this.question=question;
     }
-    public String getText() {
-        return fileName;
-    }
-
-    public List<String> getQuestion() {
-
-        return question;
-    }
 }

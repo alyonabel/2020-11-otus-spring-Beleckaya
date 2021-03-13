@@ -14,29 +14,13 @@ public class QuestionDaoImpl implements QuestionDao {
     }
 
     @Override
-    public Question findQuestions() throws IOException {
-        try {
-            InputStream input = getClass().getClassLoader().getResourceAsStream(fileName);
-            byte[] b = new byte[input.available()];
-            int i;
-            while ((i = input.read()) != -1) {
-                System.out.print((char) i);
-            }
-            input.close();
-        } catch (FileNotFoundException e) {
-            System.out.println("The file with questions doesn't exist in the specified directory!");
-        }
-        return new Question(fileName, questions);
-    }
-
-    @Override
-    public Question doTest() throws IOException {
+    public Question findQuestions() {
         try {
             InputStream input = getClass().getClassLoader().getResourceAsStream(fileName);
             BufferedReader reader = new BufferedReader(new InputStreamReader(input));
             String line;
             while((line=reader.readLine()) != null){
-            questions.add(line);}
+                questions.add(line);}
             System.out.println(questions.get(0) +"\n" +questions.get(1)+"\n" +questions.get(2)+"\n" +questions.get(3));
             Scanner in = new Scanner(System.in);
             ArrayList <String> answers = new ArrayList(5);
@@ -55,7 +39,7 @@ public class QuestionDaoImpl implements QuestionDao {
             String line2;
             ArrayList <String> right = new ArrayList(5);
             while((line2=reader2.readLine()) != null){
-            right.add(line2);}
+                right.add(line2);}
             int count = 0;
             for (int i = 0; i < right.size(); i++) {
                 if (right.get(i).equals(answers.get(i)))
@@ -68,4 +52,7 @@ public class QuestionDaoImpl implements QuestionDao {
         }
         return new Question(fileName, questions);
     }
+
+
+
 }

@@ -4,6 +4,7 @@ import ru.otus.spring.hw02.dao.QuestionDao;
 import ru.otus.spring.hw02.domain.Question;
 
 import java.io.IOException;
+import java.util.Scanner;
 
 public class QuestionServiceImpl implements QuestionService{
 
@@ -15,11 +16,12 @@ public class QuestionServiceImpl implements QuestionService{
 
     @Override
     public Question getQuestions() throws IOException {
+        Scanner in = new Scanner(System.in);
+        System.out.println("\nHello! Let's start the test!\nPlease introduce yourself! Input your name and press Enter\n");
+        String str = in.nextLine();
+
+        System.out.println("\nHello " + str +"!" +"\n Input the number of answer and press Enter\n Good luck!\n");
          return dao.findQuestions();
     }
 
-    @Override
-    public Question startTest() throws IOException {
-        return dao.doTest();
-    }
 }

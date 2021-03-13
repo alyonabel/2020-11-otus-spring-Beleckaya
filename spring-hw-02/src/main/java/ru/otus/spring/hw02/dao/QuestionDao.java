@@ -5,8 +5,5 @@ import java.io.IOException;
 
 
 public interface QuestionDao{
-
     Question findQuestions() throws IOException;
-    Question doTest() throws IOException;
-
 }
