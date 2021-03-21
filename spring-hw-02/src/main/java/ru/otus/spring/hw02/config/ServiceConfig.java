@@ -12,5 +12,4 @@ public class ServiceConfig {
     @Bean
     public QuestionService questionService(QuestionDao dao){
         return new QuestionServiceImpl(dao); };
-
 }

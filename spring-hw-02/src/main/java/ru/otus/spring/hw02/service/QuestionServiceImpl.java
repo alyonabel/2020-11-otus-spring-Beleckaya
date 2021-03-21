@@ -14,14 +14,16 @@ public class QuestionServiceImpl implements QuestionService{
         this.dao = dao;
     }
 
-    @Override
-    public Question getQuestions() throws IOException {
+    public void introduceTest () {
         Scanner in = new Scanner(System.in);
         System.out.println("\nHello! Let's start the test!\nPlease introduce yourself! Input your name and press Enter\n");
         String str = in.nextLine();
-
         System.out.println("\nHello " + str +"!" +"\n Input the number of answer and press Enter\n Good luck!\n");
-         return dao.findQuestions();
     }
 
+    @Override
+    public Question getQuestions() throws IOException {
+        introduceTest();
+        return dao.findQuestions();
+    }
 }

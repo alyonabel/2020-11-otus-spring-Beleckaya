@@ -7,6 +7,9 @@ import java.util.*;
 public class QuestionDaoImpl implements QuestionDao {
 
     private final String fileName;
+
+    QuestionResult questionResult = new QuestionResult();
+
     private final List<String> questions = new ArrayList<>();
 
     public QuestionDaoImpl(String fileName) {
@@ -34,25 +37,12 @@ public class QuestionDaoImpl implements QuestionDao {
             System.out.println(questions.get(20) +"\n" +questions.get(21)+"\n" +questions.get(22)+"\n" +questions.get(23));
             answers.add(in.nextLine());
             System.out.println("The test is over!");
-            InputStream input2 = getClass().getClassLoader().getResourceAsStream("answers.csv");
-            BufferedReader reader2 = new BufferedReader(new InputStreamReader(input2));
-            String line2;
-            ArrayList <String> right = new ArrayList(5);
-            while((line2=reader2.readLine()) != null){
-                right.add(line2);}
-            int count = 0;
-            for (int i = 0; i < right.size(); i++) {
-                if (right.get(i).equals(answers.get(i)))
-                { count++; }
-            }
-            System.out.println("Your score for the test: " + count );
+
+            questionResult.resultTest(answers);
         }
         catch (IOException e) {
             e.printStackTrace();
         }
         return new Question(fileName, questions);
     }
-
-
-
 }

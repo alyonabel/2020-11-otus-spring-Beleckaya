@@ -8,7 +8,6 @@ import ru.otus.spring.hw02.service.QuestionService;
 
 import java.io.IOException;
 
-
 @Configuration
 @ComponentScan ("ru.otus.spring.hw02")
 public class Main {
